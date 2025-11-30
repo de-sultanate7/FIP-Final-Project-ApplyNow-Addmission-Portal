@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     port: 3000,
     strictPort: false,   // set true if you want dev to fail when port is busy
+    open: true,
     host: true,
     watch: {
       // avoid watching node_modules (useful on Windows/OneDrive)

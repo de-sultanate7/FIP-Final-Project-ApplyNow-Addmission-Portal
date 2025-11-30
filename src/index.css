@@ -1,0 +1,17 @@
+@import './styles.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Print styles: hide navigation/header and simplify layout for printing */
+@media print {
+	/* hide site header/nav */
+	.app-header, nav, .form-stepper, .apply-page ol { display: none !important; }
+	/* make confirmation content full width and readable */
+	.apply-page, .max-w-3xl, .max-w-2xl { width: 100% !important; max-width: 100% !important }
+	body { background: #fff; color: #000 }
+	a { text-decoration: none; color: #000 }
+	/* preserve the confirmation card */
+	.bg-white { background: #fff !important }
+}

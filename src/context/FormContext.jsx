@@ -5,7 +5,7 @@ const FormContext = createContext();
 export function FormProvider({ children }) {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
-    personal: {
+    personalInfo: {
       userName: '',
       firstName: '',
       middleName: '',
@@ -48,7 +48,7 @@ export function FormProvider({ children }) {
 
   const reset = () => {
     setFormData({
-      personal: {
+      personalInfo: {
         userName: '',
         firstName: '',
         middleName: '',

@@ -12,4 +12,21 @@ export async function submitApplication(data){
   return resp.json()
 }
 
-export default { submitApplication }
+// Upload a single file using multipart/form-data. Server should return JSON { url }
+export async function uploadDocument(file){
+  if (!file) throw new Error('No file provided')
+  const fd = new FormData()
+  fd.append('file', file)
+  const url = API_BASE + '/upload'
+  const resp = await fetch(url, {
+    method: 'POST',
+    body: fd
+  })
+  if (!resp.ok) {
+    const text = await resp.text().catch(()=>null)
+    throw new Error('Upload failed: ' + (text || resp.status))
+  }
+  return resp.json()
+}
+
+export default { submitApplication, uploadDocument }
