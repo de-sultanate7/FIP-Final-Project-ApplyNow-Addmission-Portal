@@ -3,15 +3,13 @@ import { useForm } from '../../context/FormContext'
 
 export default function FormStepAcademic({ onNext = () => {}, onBack = () => {} }){
   const { formData, update } = useForm();
-  const initial = formData?.academic ?? {
+  const initial = formData?.academicDetails ?? {
     lastSchoolAttended: '',
     qualificationObtained: '',
     yearOfGraduation: '',
     grades: '',
     courseOfStudy: '',
     intendedProgram: '',
-    entranceTest: '',
-    testScore: '',
     personalEssay: '',
     uploadDocuments: null,
   }
@@ -19,8 +17,8 @@ export default function FormStepAcademic({ onNext = () => {}, onBack = () => {} 
   const [local, setLocal] = useState(initial);
 
   useEffect(() => {
-    setLocal(formData?.academic ?? initial)
-  }, [formData?.academic])
+    setLocal(formData?.academicDetails ?? initial)
+  }, [formData?.academicDetails])
 
   const [uploading, setUploading] = useState(false)
 
@@ -54,7 +52,7 @@ export default function FormStepAcademic({ onNext = () => {}, onBack = () => {} 
 
   return (
     <div className="bg-white p-6 rounded shadow">
-      <h2 className="text-lg font-semibold mb-4">Academic</h2>
+      <h2 className="text-lg font-semibold mb-4">Academic Details</h2>
 
       <div className="flex flex-wrap -mx-2">
         <div className="w-full md:w-1/2 px-2">
@@ -112,24 +110,6 @@ export default function FormStepAcademic({ onNext = () => {}, onBack = () => {} 
         </div>
 
         <div className="w-full px-2">
-          <label className="block text-sm">Entrance Test</label>
-          <textarea
-            value={local.entranceTest || ''}
-            onChange={(e) => setLocal({ ...local, entranceTest: e.target.value })}
-            className="w-full p-2 border rounded"
-          />
-        </div>
-
-        <div className="w-full px-2">
-          <label className="block text-sm">Test Score</label>
-          <textarea
-            value={local.testScore || ''}
-            onChange={(e) => setLocal({ ...local, testScore: e.target.value })}
-            className="w-full p-2 border rounded"
-          />
-        </div>
-
-        <div className="w-full px-2">
           <label className="block text-sm">Personal Essay</label>
           <textarea
             value={local.personalEssay || ''}
@@ -154,10 +134,10 @@ export default function FormStepAcademic({ onNext = () => {}, onBack = () => {} 
 
       <div className="mt-4 flex justify-between items-center">
         <div>
-          <button type="button" onClick={handleNext} className="px-4 py-2 bg-blue-600 text-white rounded" disabled={uploading}>{uploading ? 'Uploading…' : 'Next'}</button>
+          <button type="button" onClick={handleBack} className="px-4 py-2 border rounded" disabled={uploading}>{uploading ? 'Uploading…' : 'Back'}</button>
         </div>
         <div>
-          <button type="button" onClick={handleBack} className="px-4 py-2 border rounded">Back</button>
+          <button type="button" onClick={handleNext} className="px-4 py-2 bg-blue-600 text-white rounded">Next</button>
         </div>
       </div>
     </div>

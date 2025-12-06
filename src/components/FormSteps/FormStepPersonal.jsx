@@ -137,10 +137,10 @@ export default function FormStepPersonal({ onNext = () => {}, onBack = () => {} 
 
       <div className="mt-4 flex justify-between items-center">
         <div>
-          <button type="button" onClick={handleNext} className="px-4 py-2 bg-blue-600 text-white rounded">Next</button>
+          <button type="button" onClick={handleBack} className="px-4 py-2 border rounded">Back</button>
         </div>
         <div>
-          <button type="button" onClick={handleBack} className="px-4 py-2 border rounded">Back</button>
+          <button type="button" onClick={handleNext} className="px-4 py-2 bg-blue-600 text-white rounded">Next</button>
         </div>
       </div>
     </div>

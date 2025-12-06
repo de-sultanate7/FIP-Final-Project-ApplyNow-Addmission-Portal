@@ -6,10 +6,10 @@ import FormStepGuardian from '../components/FormSteps/FormStepGuardian'
 import FormStepReview from '../components/FormSteps/FormStepReview'
 
 const steps = [
-  { id: 'personal', title: 'Personal' },
-  { id: 'academic', title: 'Academic' },
-  { id: 'guardian', title: 'Guardian' },
-  { id: 'review', title: 'Review' },
+  { id: 'personalInfo', title: 'PersonalInfo' },
+  { id: 'academicDetails', title: 'AcademicDetails' },
+  { id: 'guardianInfo', title: 'GuardianInfo' },
+  { id: 'review & Submit', title: 'Review & Submit' },
 ]
 
 function StepNav({ current, goTo, validations = [] }) {
@@ -81,7 +81,7 @@ export default function Apply() {
       )
     }
     if (i === 1) {
-      const a = fd.academic || {}
+      const a = fd.academicDetails || {}
       return Boolean(
         a.lastSchoolAttended &&
           a.lastSchoolAttended.trim() &&
@@ -90,7 +90,7 @@ export default function Apply() {
       )
     }
     if (i === 2) {
-      const g = fd.guardian || {}
+      const g = fd.guardianInfo || {}
       return Boolean(
         g.guardianName &&
           g.guardianName.trim() &&

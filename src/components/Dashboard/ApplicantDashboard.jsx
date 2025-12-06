@@ -39,8 +39,8 @@ export default function ApplicantDashboard(){
     let total = 4
     let done = 0
     if(application.personalInfo && Object.values(application.personalInfo).some(Boolean)) done++
-    if(application.guardian && Object.values(application.guardian).some(Boolean)) done++
-    if(application.academic && Object.values(application.academic).some(Boolean)) done++
+    if(application.guardianInfo && Object.values(application.guardianInfo).some(Boolean)) done++
+    if(application.academicDetails && Object.values(application.academicDetails).some(Boolean)) done++
     if(application.uploadDocuments) done++
     return (done / total) * 100
   }
@@ -98,14 +98,14 @@ export default function ApplicantDashboard(){
       </Section>
 
       <Section title="Guardian Information" onEdit={openEdit}>
-        <div><strong>Guardian:</strong> {app.guardian?.guardianName || '—'}</div>
-        <div><strong>Guardian Phone:</strong> {app.guardian?.guardianPhoneNumber || '—'}</div>
+        <div><strong>Guardian:</strong> {app.guardianInfo?.guardianName || '—'}</div>
+        <div><strong>Guardian Phone:</strong> {app.guardianInfo?.guardianPhoneNumber || '—'}</div>
       </Section>
 
       <Section title="Academic" onEdit={openEdit}>
-        <div><strong>School:</strong> {app.academic?.lastSchoolAttended || '—'}</div>
-        <div><strong>Qualification:</strong> {app.academic?.qualificationObtained || '—'}</div>
-        <div><strong>Grades / Score:</strong> {app.academic?.grades || app.academic?.testScore || '—'}</div>
+        <div><strong>School:</strong> {app.academicDetails?.lastSchoolAttended || '—'}</div>
+        <div><strong>Qualification:</strong> {app.academicDetails?.qualificationObtained || '—'}</div>
+        <div><strong>Grades / Score:</strong> {app.academicDetails?.grades || app.academicDetails?.testScore || '—'}</div>
       </Section>
 
       <Section title="Uploaded Documents">

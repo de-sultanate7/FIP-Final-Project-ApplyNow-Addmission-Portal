@@ -19,14 +19,14 @@ export function FormProvider({ children }) {
       phoneNumber: '',
       address: '',
     },
-    guardian: {
+    guardianInfo: {
       guardianName: '',
       guardianPhoneNumber: '',
       guardianEmail: '',
       guardianAddress: '',
       relationship: '',
     },
-    academicAndEssay: {
+    academicDetails: {
       lastSchoolAttended: '',
       cgpa: '',
       highestQualification: '',
@@ -62,14 +62,14 @@ export function FormProvider({ children }) {
         phoneNumber: '',
         address: '',
       },
-      guardian: {
+        guardianInfo: {
         guardianName: '',
         guardianPhoneNumber: '',
         guardianEmail: '',
         guardianAddress: '',
         relationship: '',
       },
-      academicAndEssay: {
+      academicDetails: {
         lastSchoolAttended: '',
         cgpa: '',
         highestQualification: '',

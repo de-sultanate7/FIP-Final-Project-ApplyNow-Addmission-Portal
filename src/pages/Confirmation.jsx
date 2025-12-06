@@ -69,12 +69,12 @@ export default function Confirmation(){
 
             <div>
               <div className="text-sm text-gray-500">Academic</div>
-              <div className="mt-1">{app.academic?.lastSchoolAttended || '—'}</div>
+              <div className="mt-1">{app.academicDetails?.lastSchoolAttended || '—'}</div>
             </div>
 
             <div>
               <div className="text-sm text-gray-500">Guardian</div>
-              <div className="mt-1">{app.guardian?.guardianName || '—'}</div>
+              <div className="mt-1">{app.guardianInfo?.guardianName || '—'}</div>
             </div>
 
             <div className="flex gap-3 mt-6">

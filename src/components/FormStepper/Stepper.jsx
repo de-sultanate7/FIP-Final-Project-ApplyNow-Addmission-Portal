@@ -5,10 +5,10 @@ export default function FormStepper(){
     <div className="form-stepper">
       <nav>
         <ol>
-          <li>Personal</li>
-          <li>Academic</li>
-          <li>Guardian</li>
-          <li>Review</li>
+          <li>Personal Info</li>
+          <li>Academic Details</li>
+          <li>Guardian Info</li>
+          <li>Review & Submit</li>
         </ol>
       </nav>
     </div>

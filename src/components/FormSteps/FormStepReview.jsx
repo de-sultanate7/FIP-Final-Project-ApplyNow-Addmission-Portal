@@ -8,7 +8,7 @@ export default function FormStepReview({ onBack = () => {} }){
   const navigate = useNavigate()
 
   async function handleSubmit(){
-    // For now, simulate submission by saving to mock applicant API and updating status
+    // simulation of submission by saving to mock applicant API and updating status
     try{
       await applicantApi.updateMyApplication({
         ...formData,
@@ -28,17 +28,17 @@ export default function FormStepReview({ onBack = () => {} }){
     <div className="bg-white p-6 rounded shadow">
       <h2 className="text-lg font-semibold mb-4">Review & Submit</h2>
       <div className="space-y-2">
-        <div><strong>Personal</strong>: {formData.personalInfo?.userName || '—'}</div>
-        <div><strong>Academic</strong>: {formData.academic?.lastSchoolAttended || '—'}</div>
-        <div><strong>Guardian</strong>: {formData.guardian?.guardianName || '—'}</div>
+        <div><strong>Personal Info</strong>: {formData.personalInfo?.userName || '—'}</div>
+        <div><strong>Academic Details</strong>: {formData.academicDetails?.lastSchoolAttended || '—'}</div>
+        <div><strong>Guardian Info</strong>: {formData.guardianInfo?.guardianName || '—'}</div>
       </div>
 
       <div className="mt-4 flex justify-between items-center">
         <div>
-          <button onClick={handleSubmit} className="px-3 py-2 bg-blue-600 text-white rounded">Submit Application</button>
+          <button onClick={handleBack} className="px-3 py-2 border rounded">Back</button>
         </div>
         <div>
-          <button onClick={onBack} className="px-3 py-2 border rounded">Back</button>
+          <button onClick={onNext} className="px-3 py-2 bg-blue-600 text-white border rounded">Next</button>
         </div>
       </div>
     </div>

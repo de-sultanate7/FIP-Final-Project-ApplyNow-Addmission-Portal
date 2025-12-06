@@ -3,7 +3,7 @@ import { useForm } from '../../context/FormContext'
 
 export default function FormStepGuardian({ onNext = () => {}, onBack = () => {} }){
   const { formData, update } = useForm();
-  const initial = formData?.guardian ?? {
+  const initial = formData?.guardianInfo ?? {
     guardianName: '',
     guardianPhoneNumber: '',
     guardianEmail: '',
@@ -14,12 +14,12 @@ export default function FormStepGuardian({ onNext = () => {}, onBack = () => {} 
   const [local, setLocal] = useState(initial);
 
   useEffect(() => {
-    setLocal(formData?.guardian ?? initial)
-  }, [formData?.guardian])
+    setLocal(formData?.guardianInfo ?? initial)
+  }, [formData?.guardianInfo])
 
   const handleNext = () => {
     // FormContext.update(section, values)
-    update('guardian', local)
+    update('guardianInfo', local)
     onNext()
   }
 
@@ -27,7 +27,7 @@ export default function FormStepGuardian({ onNext = () => {}, onBack = () => {} 
 
   return (
     <div className="bg-white p-6 rounded shadow">
-      <h2 className="text-lg font-semibold mb-4">Guardian Details</h2>
+      <h2 className="text-lg font-semibold mb-4">Guardian Info</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -78,10 +78,10 @@ export default function FormStepGuardian({ onNext = () => {}, onBack = () => {} 
 
       <div className="mt-4 flex justify-between items-center">
         <div>
-          <button type="button" onClick={handleNext} className="px-4 py-2 bg-blue-600 text-white rounded">Next</button>
+          <button type="button" onClick={handleBack} className="px-4 py-2 border rounded">Back</button>
         </div>
         <div>
-          <button type="button" onClick={handleBack} className="px-4 py-2 border rounded">Back</button>
+          <button type="button" onClick={handleNext} className="px-4 py-2 bg-blue-600 text-white rounded">Next</button>
         </div>
       </div>
     </div>
